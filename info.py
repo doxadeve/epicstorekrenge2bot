@@ -18,9 +18,9 @@ def is_enabled(value, default):
 SESSION = environ.get('SESSION', 'Media_search')
 API_ID = int(environ.get('API_ID', '904789'))
 API_HASH = environ.get('API_HASH', '2262ef67ced426b9eea57867b11666a1')
-BOT_TOKEN = environ.get('BOT_TOKEN', "7599183686:AAHXybbEJohsvmsXmGap7Z3xbs571aSI5sM")
-BOT_USERNAME = environ.get('BOT_USERNAME', 'ipapcornbot')
-MEDIATOR_BOT = environ.get('MEDIATOR_BOT', 'ipapcornbot')
+BOT_TOKEN = environ.get('BOT_TOKEN', "7875423546:AAHE8RMGXmiC6iwPWxcdrnezfia7J6tKssM")
+BOT_USERNAME = environ.get('BOT_USERNAME', 'epicstorekrenge2bot')
+MEDIATOR_BOT = environ.get('MEDIATOR_BOT', 'epicstorekrenge2bot')
 FORWARD_LINK = "https://vegamovies4u.xyz/wait?Autofiler3"
 
 
@@ -77,15 +77,15 @@ REFERAL_PREMEIUM_TIME = environ.get('REFERAL_PREMEIUM_TIME', '1_Month')
 
 
 ## MongoDB information for session files
-DATABASE_URI_SESSIONS_F = environ.get('DATABASE_URI_SESSIONS_F', "mongodb+srv://sonukumarkrbbu60:PIzEc0vSzaEAhoem@cluster0.phibzml.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0")
+DATABASE_URI_SESSIONS_F = environ.get('DATABASE_URI_SESSIONS_F', "mongodb+srv://sonukumarkrbbu60:2Oj3H6FdOQ0vDOcY@cluster0.2wrbftx.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0")
 
 # MongoDB information
-DATABASE_URI = environ.get('DATABASE_URI', "mongodb+srv://sonukumarkrbbu60:PIzEc0vSzaEAhoem@cluster0.phibzml.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0")
+DATABASE_URI = environ.get('DATABASE_URI', "mongodb+srv://sonukumarkrbbu60:2Oj3H6FdOQ0vDOcY@cluster0.2wrbftx.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0")
 DATABASE_NAME = environ.get('DATABASE_NAME', "Cluster0")
 
 
 # 2nd MongoDB for only storing telegram files
-DATABASE_URI2 = environ.get('DATABASE_URI2', "mongodb+srv://sonukumarkrbbu60:PIzEc0vSzaEAhoem@cluster0.phibzml.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0")
+DATABASE_URI2 = environ.get('DATABASE_URI2', "mongodb+srv://sonukumarkrbbu60:m2bBnK8l3owrxcK6@cluster0.34yugqa.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0")
 DATABASE_NAME2 = environ.get('DATABASE_NAME2', "Cluster0")
 
 COLLECTION_NAME = environ.get('COLLECTION_NAME', 'mydbchannelforfile')
@@ -136,7 +136,7 @@ IS_SHORTLINK = bool(environ.get('IS_SHORTLINK', False))
 DELETE_CHANNELS = [int(dch) if id_pattern.search(dch) else dch for dch in environ.get('DELETE_CHANNELS', '-1002348104910').split()]
 MAX_B_TN = environ.get("MAX_B_TN", "10")
 MAX_BTN = is_enabled((environ.get('MAX_BTN', "True")), True)
-PORT = environ.get("PORT", "4596")
+PORT = environ.get("PORT", "9001")
 GRP_LNK = environ.get('GRP_LNK', 'https://telegram.me/new_ipap')
 CHNL_LNK = environ.get('CHNL_LNK', 'https://telegram.me/new_ipap')
 TUTORIAL = environ.get('TUTORIAL', 'https://t.me/how2dow/55')

@@ -3,7 +3,7 @@ import re
 from pymongo.errors import DuplicateKeyError
 import motor.motor_asyncio
 from pymongo import MongoClient
-from info import DATABASE_NAME, CUSTOM_FILE_CAPTION, DATABASE_URI, IMDB, IMDB_TEMPLATE, MELCOW_NEW_USERS, P_TTI_SHOW_OFF, SINGLE_BUTTON, SPELL_CHECK_REPLY, PROTECT_CONTENT, AUTO_DELETE, MAX_BTN, AUTO_FFILTER, SHORTLINK_API, SHORTLINK_URL, IS_SHORTLINK, TUTORIAL, IS_TUTORIAL
+from info import *
 import datetime
 import pytz
 import time
@@ -11,6 +11,9 @@ import time
 
 my_client = MongoClient(DATABASE_URI)
 mydb = my_client["referal_user"]
+
+
+   
 
 async def referal_add_user(user_id, ref_user_id):
     user_db = mydb[str(user_id)]
@@ -41,9 +44,12 @@ class Database:
     def __init__(self, uri, database_name):
         self._client = motor.motor_asyncio.AsyncIOMotorClient(uri)
         self.db = self._client[database_name]
-        self.col = self.db.users
-        self.grp = self.db.groups
-        self.users = self.db.uersz
+
+        prefix = BOT_USERNAME
+        # Assign collections with prefix
+        self.col = self.db[f"{prefix}_users"]
+        self.grp = self.db[f"{prefix}_groups"]
+        self.users = self.db[f"{prefix}_userz"]
         self.join_request = self.db.join_requests
 
     async def add_join_request(self, user_id, chat_id):

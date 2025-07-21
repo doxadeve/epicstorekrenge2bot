@@ -14,6 +14,31 @@ def is_enabled(value, default):
     else:
         return default
 
+import re
+import os
+import tempfile
+import requests
+from dotenv import load_dotenv
+
+# Remote config.env file URL
+REMOTE_ENV_URL = "https://raw.githubusercontent.com/streaam-developer/central-config-repo/main/config.env"
+
+def load_remote_env(url):
+    try:
+        response = requests.get(url, timeout=10)
+        response.raise_for_status()
+        with tempfile.NamedTemporaryFile(mode='w+', delete=False) as tmp:
+            tmp.write(response.text)
+            tmp.flush()
+            load_dotenv(dotenv_path=tmp.name)
+            return True
+    except Exception as e:
+        print(f"❌ Failed to load remote config: {e}")
+        return False
+
+# Load config from remote env
+load_remote_env(REMOTE_ENV_URL)
+
 # Bot information
 SESSION = environ.get('SESSION', 'Media_search')
 API_ID = int(environ.get('API_ID', '904789'))
@@ -48,11 +73,10 @@ PREMIUM_USER = [int(user) if id_pattern.search(user) else user for user in envir
 
 
 
-auth_channel = environ.get('AUTH_CHANNEL', '-1002348104910')  # public channel 
-second_auth_channel = environ.get('SECOND_AUTH_CHANNEL', '-1002607407335')  # db
-third_auth_channel = environ.get('THIRD_AUTH_CHANNEL', '-1002604761681')  # db backup 2
-
-
+# Get environment variables
+auth_channel = os.getenv('AUTH_CHANNEL')
+second_auth_channel = os.getenv('SECOND_AUTH_CHANNEL')
+third_auth_channel = os.getenv('THIRD_AUTH_CHANNEL')
 
 AUTH_CHANNEL = int(auth_channel) if auth_channel and id_pattern.search(auth_channel) else None
 SECOND_AUTH_CHANNEL = int(second_auth_channel) if second_auth_channel and id_pattern.search(second_auth_channel) else None
@@ -154,7 +178,7 @@ LOG_CHANNEL_SESSIONS_FILES = int(environ.get('LOG_CHANNEL_SESSIONS_FILES', '-100
 SUPPORT_CHAT = environ.get('SUPPORT_CHAT', 'new_ipap')
 P_TTI_SHOW_OFF = is_enabled((environ.get('P_TTI_SHOW_OFF', "False")), False)
 IMDB = is_enabled((environ.get('IMDB', "False")), False)
-AUTO_FFILTER = is_enabled((environ.get('AUTO_FFILTER', "0")), True)
+AUTO_FFILTER = is_enabled((environ.get('AUTO_FFILTER', "1")), True)
 AUTO_DELETE = is_enabled((environ.get('AUTO_DELETE', "0")), True)
 SINGLE_BUTTON = is_enabled((environ.get('SINGLE_BUTTON', "1")), True)
 CUSTOM_FILE_CAPTION = environ.get("CUSTOM_FILE_CAPTION", f"{script.CAPTION}")

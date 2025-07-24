@@ -77,10 +77,13 @@ PREMIUM_USER = [int(user) if id_pattern.search(user) else user for user in envir
 auth_channel = os.getenv('AUTH_CHANNEL')
 second_auth_channel = os.getenv('SECOND_AUTH_CHANNEL')
 third_auth_channel = os.getenv('THIRD_AUTH_CHANNEL')
+fourth_auth_channel = os.getenv('FOURTH_AUTH_CHANNEL')
+
 
 AUTH_CHANNEL = int(auth_channel) if auth_channel and id_pattern.search(auth_channel) else None
 SECOND_AUTH_CHANNEL = int(second_auth_channel) if second_auth_channel and id_pattern.search(second_auth_channel) else None
 THIRD_AUTH_CHANNEL = int(third_auth_channel) if third_auth_channel and id_pattern.search(third_auth_channel) else None
+FOURTH_AUTH_CHANNEL = int(fourth_auth_channel) if fourth_auth_channel and id_pattern.search(fourth_auth_channel) else None
 
 
 # auth_grp = environ.get('AUTH_GROUP', '-1002410840323 -1002266315620')

@@ -1,10 +1,10 @@
 from pyrogram import Client, filters, enums
 from pyrogram.types import ChatJoinRequest
 from database.users_chats_db import db
-from info import ADMINS, AUTH_CHANNEL, SECOND_AUTH_CHANNEL, THIRD_AUTH_CHANNEL
+from info import *
 from utils import temp, is_subscribed
 
-FSUB_CHANNELS = [AUTH_CHANNEL, SECOND_AUTH_CHANNEL, THIRD_AUTH_CHANNEL]
+FSUB_CHANNELS = [AUTH_CHANNEL, SECOND_AUTH_CHANNEL, THIRD_AUTH_CHANNEL, FOURTH_AUTH_CHANNEL]
 
 @Client.on_chat_join_request(filters.group | filters.channel)
 async def autoapprove(client: Client, message: ChatJoinRequest):
